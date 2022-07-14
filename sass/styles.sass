@@ -1,0 +1,44 @@
+@use 'variables'
+@use 'mixins'
+*
+  margin: 0
+  padding: 0
+
+body
+  background-image: url("/img/back.jpg")
+  background-size: cover
+  width: 100vw
+  height: 100vh
+  font-family: "Open Sans", sans-serif
+
+main
+  display: flex
+  flex-direction: column
+
+.title
+  color: #ee19ca
+  margin: 20vh auto
+  font-size: calc(5vw + 20px )
+  text-shadow: 0 0 10px #e0cdc1
+
+.container
+  width: 90vw
+  height: 100px
+  margin: 0 auto
+  display: flex
+  flex-wrap: wrap
+  gap: 2vw
+  align-items: center
+  justify-content: space-around
+.key
+  display: flex
+  width: 100px
+  height: 100px
+  align-items: center
+  justify-content: center
+  background-color: #0000009d
+  color: #fff
+  font-size: calc( 3vw + 20px )
+  border: 3px outset  #fff
+  user-select: none
+  cursor: pointer
