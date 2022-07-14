@@ -4,7 +4,10 @@ let drum = document.getElementById("container")
 const sounds = {
   "A": "boom.wav",
   "S": "clap.wav",
-  "O": "ride.wav"
+  "O": "ride.wav",
+  "K": "kick.wav",
+  "M": "openhat.wav"
+
 }
 
 
@@ -15,7 +18,6 @@ function createDiv(textt) {
   div.textContent = textt
   div.id = textt
   document.getElementById("container").appendChild(div)
-
 }
 
 
@@ -29,13 +31,29 @@ function playSound(a) {
   sound.play()
 }
 
-function activeDrum(eventClick) {
-  console.log(eventClick.target.id)
-  let drumPart = eventClick.target.id
-  playSound(drumPart)
+function activeClass(div) {
+  let keyActive = document.getElementById(div)
+  keyActive.classList.add("active")
 
+  setTimeout(() => {
+    keyActive.classList.remove("active")
+
+  }, 300)
+
+}
+
+function activeDrum(eventClick) {
+  const drumPart = eventClick.type == "click" ? eventClick.target.id : eventClick.key.toUpperCase()
+
+
+  let hasKey = sounds.hasOwnProperty(drumPart)
+  if (hasKey) {
+    activeClass(drumPart)
+    playSound(drumPart)
+  }
 }
 
 showKeys(sounds)
 
 drum.addEventListener("click", activeDrum)
+window.addEventListener("keydown", activeDrum)

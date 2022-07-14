@@ -49,4 +49,10 @@ main {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.active {
+  transform: scale(1.1);
+  border: 3px outset #f116b0;
 }/*# sourceMappingURL=styles.css.map */
